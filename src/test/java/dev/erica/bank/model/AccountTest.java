@@ -41,4 +41,11 @@ public class AccountTest {
 
         assertEquals(0, account.getTotalDeposits());
     }
+
+    @Test
+    @DisplayName("Test para comprobar el total de retiros")
+    public void totalWithdrawsTest() {
+
+        assertEquals(0, account.getTotalWithdraws());
+    }
 }
