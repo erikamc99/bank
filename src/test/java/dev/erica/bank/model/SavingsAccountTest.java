@@ -1,5 +1,6 @@
 package dev.erica.bank.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
@@ -21,5 +22,15 @@ public class SavingsAccountTest {
     public void isNotActiveTest() {
         account = new SavingsAccount(5000, 0.05f);
         assertFalse(account.isActive);
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la consignación")
+    public void depositTest() {
+        account = new SavingsAccount(5000, 0.05f);
+        account.deposit(5000);
+        
+        assertTrue(account.isActive);
+        assertEquals(10000, account.getBalance());
     }
 }
