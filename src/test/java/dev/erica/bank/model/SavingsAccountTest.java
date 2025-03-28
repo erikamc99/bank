@@ -33,4 +33,14 @@ public class SavingsAccountTest {
         assertTrue(account.isActive);
         assertEquals(10000, account.getBalance());
     }
+
+    @Test
+    @DisplayName("Test para comprobar la consignación")
+    public void depositErrorTest() {
+        account = new SavingsAccount(5000, 0.05f);
+        account.deposit(500);
+        
+        assertFalse(account.isActive);
+        assertEquals(5000, account.getBalance());
+    }
 }
