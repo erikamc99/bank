@@ -38,4 +38,9 @@ public abstract class Account {
         balance += monthlyInterest;
         return monthlyInterest;
     }
+
+    public void monthlyStatement() {
+        calculateMonthlyInterest();
+        balance -= monthlyCommission;
+    }
 }
