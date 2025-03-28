@@ -18,6 +18,12 @@ public class AccountTest {
             balance += quantity;
             totalDeposits++;
         }
+
+        @Override
+        public void withdraw(float quantity) {
+            balance -= quantity;
+            totalWithdraws++; 
+        }
     }
 
     private TestAccount account;
