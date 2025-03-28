@@ -29,23 +29,30 @@ public class AccountTest {
     }
 
     @Test
-    @DisplayName("Test para comprobar la tasa anual")
+    @DisplayName("Test para comprobar la tasa anual inicial")
     public void annualRateTest() {
 
         assertEquals(0.5f, account.getAnnualRate());
     }
 
     @Test
-    @DisplayName("Test para comprobar el total de consignaciones")
+    @DisplayName("Test para comprobar el total de consignaciones inicial")
     public void totalDepositsTest() {
 
         assertEquals(0, account.getTotalDeposits());
     }
 
     @Test
-    @DisplayName("Test para comprobar el total de retiros")
+    @DisplayName("Test para comprobar el total de retiros inicial")
     public void totalWithdrawsTest() {
 
         assertEquals(0, account.getTotalWithdraws());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la comisión mensual inicial")
+    public void monthlyCommissionTest() {
+
+        assertEquals(0, account.getMonthlyCommission());
     }
 }
