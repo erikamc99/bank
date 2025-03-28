@@ -64,4 +64,12 @@ public class SavingsAccountTest {
 
         assertEquals(5000, accountF.getBalance());
     }
+
+    @Test
+    @DisplayName("Test para comprobar la retirada de dinero en una cuenta inactiva")
+    public void withdrawError2Test() {
+        accountT.withdraw(100000);
+
+        assertEquals(5000, accountF.getBalance());
+    }
 }
