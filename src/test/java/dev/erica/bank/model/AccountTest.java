@@ -54,7 +54,7 @@ public class AccountTest {
     @DisplayName("Test para comprobar la tasa anual inicial")
     public void annualRateTest() {
 
-        assertEquals(0.5f, account.getAnnualRate());
+        assertEquals(0.05f, account.getAnnualRate());
     }
 
     @Test

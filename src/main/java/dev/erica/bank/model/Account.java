@@ -33,4 +33,9 @@ public abstract class Account {
         totalWithdraws++;
     }
 
+    protected float calculateMonthlyInterest() {
+        float monthlyInterest = (balance * annualRate) / 12;
+        balance += monthlyInterest;
+        return monthlyInterest;
+    }
 }
