@@ -1,6 +1,7 @@
 package dev.erica.bank.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,11 +16,14 @@ public class AccountTest {
 
     private TestAccount account;
 
+    @BeforeEach
+    void setUp() {
+        account = new TestAccount(100, 0.5f);
+    }
+
     @Test
     @DisplayName("Test para comprobar el atributo de saldo inicial")
     public void initialBalanceTest() {
-
-        account = new TestAccount(100, 0.5f);
 
         assertEquals(100, account.getBalance());
     }
@@ -27,7 +31,6 @@ public class AccountTest {
     @Test
     @DisplayName("Test para comprobar la tasa anual")
     public void annualRateTest() {
-        account = new TestAccount(100, 0.5f);
 
         assertEquals(0.5f, account.getAnnualRate());
     }
