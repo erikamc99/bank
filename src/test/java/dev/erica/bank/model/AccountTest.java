@@ -70,4 +70,13 @@ public class AccountTest {
         assertEquals(600, account.getBalance());
         assertEquals(1, account.getTotalDeposits());
     }
+
+    @Test
+    @DisplayName("Test para comprobar la retirada de dinero")
+    public void withdrawTest() {
+        account.withdraw(50);
+
+        assertEquals(50, account.getBalance());
+        assertEquals(1, account.getTotalWithdraws());
+    }
 }
