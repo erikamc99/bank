@@ -8,8 +8,8 @@ public class AccountTest {
     
     public static class TestAccount extends Account {
 
-        public TestAccount(float initialBalance){
-            super(initialBalance);
+        public TestAccount(float initialBalance, float annualRate){
+            super(initialBalance, annualRate);
         }
     }
 
@@ -22,5 +22,13 @@ public class AccountTest {
         account = new TestAccount(100);
 
         assertEquals(100, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la tasa anual")
+    public void annualRateTest() {
+        account = new TestAccount(100, 0.5f);
+
+        assertEquals(0.5f, account.getAnnualRate());
     }
 }
