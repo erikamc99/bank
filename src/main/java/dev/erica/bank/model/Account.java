@@ -5,6 +5,7 @@ public abstract class Account {
     protected float annualRate;
     protected int totalDeposits;
     protected int totalWithdraws;
+    protected float monthlyCommission;
 
 
     public Account(float initialBalance, float annualRate) {
@@ -12,11 +13,13 @@ public abstract class Account {
         this.annualRate = annualRate;
         this.totalDeposits = 0;
         this.totalWithdraws = 0;
+        this.monthlyCommission = 0.0f;
     }
 
     public float getBalance() { return balance; }
     public float getAnnualRate() { return annualRate; }
     public int getTotalDeposits() { return totalDeposits; }
     public int getTotalWithdraws() { return totalWithdraws; }
+    public float getMonthlyCommission() { return monthlyCommission; }
 
 }
