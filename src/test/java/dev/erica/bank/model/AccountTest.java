@@ -34,4 +34,11 @@ public class AccountTest {
 
         assertEquals(0.5f, account.getAnnualRate());
     }
+
+    @Test
+    @DisplayName("Test para comprobar el total de consignaciones")
+    public void totalDepositsTest() {
+
+        assertEquals(0, account.getTotalDeposits());
+    }
 }
