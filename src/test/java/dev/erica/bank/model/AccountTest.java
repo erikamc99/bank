@@ -19,7 +19,7 @@ public class AccountTest {
     @DisplayName("Test para comprobar el atributo de saldo inicial")
     public void initialBalanceTest() {
 
-        account = new TestAccount(100);
+        account = new TestAccount(100, 0.5f);
 
         assertEquals(100, account.getBalance());
     }
