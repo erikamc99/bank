@@ -33,6 +33,13 @@ public class AccountTest {
         public void monthlyStatement() {
             super.monthlyStatement();
         }
+
+        @Override
+        public String printTicket() {
+
+            String ticket = "Su saldo es de " + balance + "€";
+            return ticket;
+        }
     }
 
     private TestAccount account;
@@ -121,5 +128,11 @@ public class AccountTest {
         account.monthlyStatement();
 
         assertEquals(500.0f, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la impresión de un ticket")
+    public void printTicketTest() {
+        assertEquals("Su saldo es de 100.0€", account.printTicket());
     }
 }
