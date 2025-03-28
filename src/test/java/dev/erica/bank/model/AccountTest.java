@@ -12,6 +12,12 @@ public class AccountTest {
         public TestAccount(float initialBalance, float annualRate){
             super(initialBalance, annualRate);
         }
+
+        @Override
+        public void deposit(float quantity) {
+            balance += quantity;
+            totalDeposits++;
+        }
     }
 
     private TestAccount account;
@@ -54,5 +60,14 @@ public class AccountTest {
     public void monthlyCommissionTest() {
 
         assertEquals(0, account.getMonthlyCommission());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la consignación")
+    public void depositTest() {
+        account.deposit(500);
+
+        assertEquals(600, account.getBalance());
+        assertEquals(1, account.getTotalDeposits());
     }
 }
