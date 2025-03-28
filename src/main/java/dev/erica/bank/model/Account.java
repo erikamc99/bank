@@ -27,4 +27,9 @@ public abstract class Account {
         totalDeposits++;
     }
 
+    public void withdraw(float quantity) {
+        balance -= quantity;
+        totalWithdraws++;
+    }
+
 }
