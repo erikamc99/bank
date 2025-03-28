@@ -12,4 +12,12 @@ public class SavingsAccount extends Account {
     protected void updateState() {
         isActive = balance >= 10000;
     }
+
+    @Override
+    public void deposit(float quantity) {
+        if(isActive || quantity >= 10000 - balance) {
+            super.deposit(quantity);
+            updateState();
+        }
+    }
 }
