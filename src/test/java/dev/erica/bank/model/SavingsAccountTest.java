@@ -35,12 +35,21 @@ public class SavingsAccountTest {
     }
 
     @Test
-    @DisplayName("Test para comprobar la consignación")
+    @DisplayName("Test para comprobar la consignación en una cuenta inactiva")
     public void depositErrorTest() {
         account = new SavingsAccount(5000, 0.05f);
         account.deposit(500);
         
         assertFalse(account.isActive);
         assertEquals(5000, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la retirada de dinero en una cuenta activa")
+    public void withdraw() {
+        account = new SavingsAccount(50000, 0.05f);
+        account.withdraw(40000);
+
+        assertEquals(10000, account.getBalance());
     }
 }
