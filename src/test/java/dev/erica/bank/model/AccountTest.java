@@ -2,7 +2,6 @@ package dev.erica.bank.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -93,6 +92,7 @@ public class AccountTest {
     @Test
     @DisplayName("Test para comprobar la excepción de la retirada de dinero")
     public void withdrawExceptionTest() {
-        assertThrows(RuntimeException.class, () -> account.withdraw(200.0f));
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> account.withdraw(200.0f));
+        assertEquals("No tiene saldo suficiente.", exception.getMessage());
     }
 }
