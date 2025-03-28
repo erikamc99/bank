@@ -1,14 +1,12 @@
 package dev.erica.bank.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class AccountTest {
     
     public static class TestAccount extends Account {
-        protected float balance;
 
         public TestAccount(float initialBalance){
             super(initialBalance);
