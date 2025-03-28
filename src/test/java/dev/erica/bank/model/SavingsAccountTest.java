@@ -1,5 +1,6 @@
 package dev.erica.bank.model;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,5 +14,12 @@ public class SavingsAccountTest {
     public void isActiveTest() {
         account = new SavingsAccount(50000, 0.05f);
         assertTrue(account.isActive);
+    }
+
+    @Test
+    @DisplayName("Test para comprobar si no está activa la cuenta")
+    public void isNotActiveTest() {
+        account = new SavingsAccount(5000, 0.05f);
+        assertFalse(account.isActive);
     }
 }
