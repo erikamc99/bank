@@ -27,13 +27,20 @@ public class AccountTest {
             balance -= quantity;
             totalWithdraws++; 
         }
+
+        @Override
+        public float calculateMonthlyInterest() {
+            float monthlyInterest = (balance * annualRate) / 12;
+            balance += monthlyInterest;
+            return monthlyInterest;
+        }
     }
 
     private TestAccount account;
 
     @BeforeEach
     void setUp() {
-        account = new TestAccount(100, 0.5f);
+        account = new TestAccount(100, 0.05f);
     }
 
     @Test
@@ -94,5 +101,15 @@ public class AccountTest {
     public void withdrawExceptionTest() {
         RuntimeException exception = assertThrows(RuntimeException.class, () -> account.withdraw(200.0f));
         assertEquals("No tiene saldo suficiente.", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar el cálculo de interés mensual")
+    public void monthlyInterestTest() {
+        account.deposit(400);
+        float interest = account.calculateMonthlyInterest();
+
+        assertEquals(2.0833333f, interest);
+        assertEquals(502.0833333f, account.getBalance());
     }
 }
