@@ -25,8 +25,13 @@ public class AccountTest {
         }
 
         @Override
-        public float calculateMonthlyInterest() {
+        protected float calculateMonthlyInterest() {
             return super.calculateMonthlyInterest();
+        }
+
+        @Override
+        public void monthlyStatement() {
+            super.monthlyStatement();
         }
     }
 
@@ -105,5 +110,16 @@ public class AccountTest {
 
         assertEquals(2.0833333f, interest);
         assertEquals(502.0833333f, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar el extracto mensual")
+    public void monthlyStatementTest() {
+        account.deposit(400);
+        account.monthlyCommission = 2.0833333f;
+
+        account.monthlyStatement();
+
+        assertEquals(500.0f, account.getBalance());
     }
 }
