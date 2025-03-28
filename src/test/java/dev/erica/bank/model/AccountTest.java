@@ -16,23 +16,17 @@ public class AccountTest {
 
         @Override
         public void deposit(float quantity) {
-            balance += quantity;
-            totalDeposits++;
+            super.deposit(quantity);
         }
 
         @Override
         public void withdraw(float quantity) {
-            if (balance < quantity) throw new RuntimeException("No tiene saldo suficiente.");
-
-            balance -= quantity;
-            totalWithdraws++; 
+            super.withdraw(quantity); 
         }
 
         @Override
         public float calculateMonthlyInterest() {
-            float monthlyInterest = (balance * annualRate) / 12;
-            balance += monthlyInterest;
-            return monthlyInterest;
+            return super.calculateMonthlyInterest();
         }
     }
 
