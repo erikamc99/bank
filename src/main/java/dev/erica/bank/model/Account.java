@@ -22,4 +22,9 @@ public abstract class Account {
     public int getTotalWithdraws() { return totalWithdraws; }
     public float getMonthlyCommission() { return monthlyCommission; }
 
+    public void deposit(float quantity) {
+        balance += quantity;
+        totalDeposits++;
+    }
+
 }
