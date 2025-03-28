@@ -1,0 +1,15 @@
+package dev.erica.bank.model;
+
+public class SavingsAccount extends Account {
+    
+    protected boolean isActive = false;
+
+    public SavingsAccount(float initialBalance, float annualRate) {
+        super(initialBalance, annualRate);
+        updateState();
+    }
+
+    protected void updateState() {
+        isActive = balance >= 10000;
+    }
+}
