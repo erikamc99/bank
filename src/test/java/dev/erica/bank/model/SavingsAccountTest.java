@@ -3,53 +3,57 @@ package dev.erica.bank.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class SavingsAccountTest {
 
-    private SavingsAccount account;
+    private SavingsAccount accountT;
+    private SavingsAccount accountF;
+
+
+    @BeforeEach
+    void setUp() {
+        accountT = new SavingsAccount(50000, 0.05f);
+        accountF = new SavingsAccount(5000, 0.05f);
+    }
 
     @Test
     @DisplayName("Test para comprobar si está activa la cuenta")
     public void isActiveTest() {
-        account = new SavingsAccount(50000, 0.05f);
-        assertTrue(account.isActive);
+        assertTrue(accountT.isActive);
     }
 
     @Test
     @DisplayName("Test para comprobar si no está activa la cuenta")
     public void isNotActiveTest() {
-        account = new SavingsAccount(5000, 0.05f);
-        assertFalse(account.isActive);
+        assertFalse(accountF.isActive);
     }
 
     @Test
     @DisplayName("Test para comprobar la consignación")
     public void depositTest() {
-        account = new SavingsAccount(5000, 0.05f);
-        account.deposit(5000);
+        accountF.deposit(5000);
         
-        assertTrue(account.isActive);
-        assertEquals(10000, account.getBalance());
+        assertTrue(accountF.isActive);
+        assertEquals(10000, accountF.getBalance());
     }
 
     @Test
     @DisplayName("Test para comprobar la consignación en una cuenta inactiva")
     public void depositErrorTest() {
-        account = new SavingsAccount(5000, 0.05f);
-        account.deposit(500);
+        accountF.deposit(500);
         
-        assertFalse(account.isActive);
-        assertEquals(5000, account.getBalance());
+        assertFalse(accountF.isActive);
+        assertEquals(5000, accountF.getBalance());
     }
 
     @Test
     @DisplayName("Test para comprobar la retirada de dinero en una cuenta activa")
     public void withdraw() {
-        account = new SavingsAccount(50000, 0.05f);
-        account.withdraw(40000);
+        accountT.withdraw(40000);
 
-        assertEquals(10000, account.getBalance());
+        assertEquals(10000, accountT.getBalance());
     }
 }
