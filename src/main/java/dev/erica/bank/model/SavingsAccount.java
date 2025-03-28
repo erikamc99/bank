@@ -20,4 +20,12 @@ public class SavingsAccount extends Account {
             updateState();
         }
     }
+
+    @Override
+    public void withdraw(float quantity) {
+        if(isActive && quantity <= balance) {
+            super.withdraw(quantity);
+            updateState();
+        }
+    }
 }
