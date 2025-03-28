@@ -43,4 +43,6 @@ public abstract class Account {
         calculateMonthlyInterest();
         balance -= monthlyCommission;
     }
+
+    public abstract String printTicket();
 }
