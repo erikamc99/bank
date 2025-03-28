@@ -28,6 +28,7 @@ public abstract class Account {
     }
 
     public void withdraw(float quantity) {
+        if(balance < quantity ) throw new RuntimeException("No tiene saldo suficiente.");
         balance -= quantity;
         totalWithdraws++;
     }
