@@ -14,4 +14,13 @@ public class CheckingAccountTest {
         account = new CheckingAccount(5000, 0.05f, 1000);
         assertEquals(1000, account.getOverdraft());
     }
+
+    @Test
+    @DisplayName("Test para comprobar el ingreso de dinero")
+    public void depositTest() {
+        account = new CheckingAccount(5000, 0.05f, 1000);
+        account.deposit(5000);
+
+        assertEquals(9000, account.getBalance());
+    }
 }
