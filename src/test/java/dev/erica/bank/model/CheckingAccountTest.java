@@ -40,7 +40,7 @@ public class CheckingAccountTest {
     }
 
     @Test
-    @DisplayName("Test para comprobar el ingreso de dinero con sobregiro")
+    @DisplayName("Test para comprobar la retirada de dinero con sobregiro")
     public void withdrawTest() {
         account.withdraw(6000);
 
@@ -49,10 +49,21 @@ public class CheckingAccountTest {
     }
 
     @Test
-    @DisplayName("Test para comprobar el ingreso de dinero con sobregiro")
+    @DisplayName("Test para comprobar la retirada de dinero con sobregiro")
     public void withdrawVithoutOverdraftTest() {
         account.withdraw(1000);
 
         assertEquals(4000, account.getBalance());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar el extracto mensual")
+    public void monthlyStatementTest() {
+        account.withdraw(1000);
+
+        account.monthlyStatement();
+
+        assertEquals(4016.66667f, account.getBalance());
+        assertEquals(0, account.getMonthlyCommission());
     }
 } 
