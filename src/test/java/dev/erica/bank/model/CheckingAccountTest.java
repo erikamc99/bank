@@ -38,4 +38,13 @@ public class CheckingAccountTest {
 
         assertEquals(10000, account.getBalance());
     }
+
+    @Test
+    @DisplayName("Test para comprobar el ingreso de dinero con sobregiro")
+    public void withdrawTest() {
+        account.withdraw(6000);
+
+        assertEquals(1000, account.getOverdraft());
+        assertEquals(0, account.getBalance());
+    }
 } 
