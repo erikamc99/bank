@@ -33,4 +33,12 @@ public class CheckingAccount extends Account {
     public void monthlyStatement() {
         super.monthlyStatement();
     }
+
+    @Override
+    public String printTicket() {
+        return "Su saldo es de " + balance + "€/n" 
+              + "Su comisión mensual es de " + monthlyCommission + "€/n" 
+              + "Su sobregiro es de " + overdraft + "€/n"
+              + "Transacciones realizadas: " + (totalDeposits + totalWithdraws);
+    }
 }
