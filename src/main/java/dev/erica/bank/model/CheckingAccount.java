@@ -28,4 +28,9 @@ public class CheckingAccount extends Account {
             balance = 0;
         } else { super.withdraw(quantity); }
     }
+
+    @Override
+    public void monthlyStatement() {
+        super.monthlyStatement();
+    }
 }
