@@ -28,4 +28,17 @@ public class SavingsAccount extends Account {
             updateState();
         }
     }
+
+    @Override
+    public void monthlyStatement() {
+        if (totalWithdraws > 4) {
+            monthlyCommission = (totalWithdraws - 4) * 1000;
+        } else {
+            monthlyCommission = 0; 
+        }
+    
+        super.monthlyStatement();
+    
+        updateState();
+    }
 }
