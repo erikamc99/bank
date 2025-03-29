@@ -44,8 +44,12 @@ public class SavingsAccount extends Account {
 
     @Override
     public String printTicket() {
-        return "Su saldo es de " + balance + "€/n" 
-        + "Su comisión mensual es de " + monthlyCommission + "€/n" 
-        + "Transacciones realizadas: " + (totalDeposits + totalWithdraws);
+        if(isActive == false) {
+            return "Cuenta inactiva. Su saldo es de " + balance + "€/n";
+        } else {
+            return "Su saldo es de " + balance + "€/n" 
+            + "Su comisión mensual es de " + monthlyCommission + "€/n" 
+            + "Transacciones realizadas: " + (totalDeposits + totalWithdraws);
+        }       
     }
 }
