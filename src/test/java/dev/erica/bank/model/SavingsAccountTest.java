@@ -72,4 +72,19 @@ public class SavingsAccountTest {
 
         assertEquals(5000, accountF.getBalance());
     }
+
+    @Test
+    @DisplayName("Test para comprobar el extracto mensual con la comisión adicional")
+    public void monthlyStatementTest() {
+        accountT.withdraw(5000);
+        accountT.withdraw(5000);
+        accountT.withdraw(5000);
+        accountT.withdraw(5000);
+        accountT.withdraw(9000);
+
+        accountT.monthlyStatement();
+
+        assertEquals(20087.5f, accountT.getBalance());
+        assertEquals(1000, accountT.getMonthlyCommission());
+    }
 }
