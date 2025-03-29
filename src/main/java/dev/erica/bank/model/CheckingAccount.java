@@ -20,4 +20,12 @@ public class CheckingAccount extends Account {
         } else { super.deposit(quantity); }
     }
 
+    @Override
+    public void withdraw(float quantity) {
+        if(quantity > balance) {
+            float deficit = quantity - balance;
+            overdraft += deficit;
+            balance = 0;
+        } else { super.withdraw(quantity); }
+    }
 }
