@@ -41,4 +41,11 @@ public class SavingsAccount extends Account {
     
         updateState();
     }
+
+    @Override
+    public String printTicket() {
+        return "Su saldo es de " + balance + "€/n" 
+        + "Su comisión mensual es de " + monthlyCommission + "€/n" 
+        + "Transacciones realizadas: " + (totalDeposits + totalWithdraws);
+    }
 }
