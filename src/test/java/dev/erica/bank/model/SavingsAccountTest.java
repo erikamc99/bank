@@ -118,4 +118,10 @@ public class SavingsAccountTest {
         assertThat(accountT.printTicket().contains("Su comisión mensual es de 0.0€"));
         assertThat(accountT.printTicket().contains("Transacciones realizadas: 2"));
     }
+
+    @Test
+    @DisplayName("Test para comprobar la impresión del recibo en una cuenta inactiva")
+    public void printTicketNonActiveTest() {
+        assertThat(accountF.printTicket().contains("Cuenta inactiva. Su saldo es de 5000.0€"));
+    }
 }
