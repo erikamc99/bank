@@ -1,5 +1,6 @@
 package dev.erica.bank.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -65,5 +66,16 @@ public class CheckingAccountTest {
 
         assertEquals(4016.66667f, account.getBalance());
         assertEquals(0, account.getMonthlyCommission());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la impresión del recibo")
+    public void printTicketTest() {
+        account.withdraw(6000);
+
+        assertThat(account.printTicket().contains("Su saldo es de 0.0€"));
+        assertThat(account.printTicket().contains("Su comisión mensual es de 0.0€"));
+        assertThat(account.printTicket().contains("Su sobregiro es de 1000.0€"));
+        assertThat(account.printTicket().contains("Transacciones realizadas: 1"));
     }
 } 
