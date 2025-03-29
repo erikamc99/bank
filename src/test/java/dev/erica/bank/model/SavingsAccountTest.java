@@ -32,12 +32,20 @@ public class SavingsAccountTest {
     }
 
     @Test
-    @DisplayName("Test para comprobar la consignación")
+    @DisplayName("Test para comprobar la consignación en una cuenta inactiva, con una cantidad que la active")
     public void depositTest() {
         accountF.deposit(5000);
         
         assertTrue(accountF.isActive);
         assertEquals(10000, accountF.getBalance());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar la consignación en una cuenta activa")
+    public void depositActiveTest() {
+        accountT.deposit(5000);
+        
+        assertEquals(55000, accountT.getBalance());
     }
 
     @Test
@@ -86,5 +94,16 @@ public class SavingsAccountTest {
 
         assertEquals(20087.5f, accountT.getBalance());
         assertEquals(1000, accountT.getMonthlyCommission());
+    }
+
+    @Test
+    @DisplayName("Test para comprobar el extracto mensual sin comisión adicional")
+    public void monthlyStatementWithoutCommissionTest() {
+        accountT.withdraw(5000);
+
+        accountT.monthlyStatement();
+
+        assertEquals(45187.5f, accountT.getBalance());
+        assertEquals(0, accountT.getMonthlyCommission());
     }
 }
