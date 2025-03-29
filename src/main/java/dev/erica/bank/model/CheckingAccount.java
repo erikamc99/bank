@@ -11,4 +11,13 @@ public class CheckingAccount extends Account {
 
     public float getOverdraft() { return overdraft; }
 
+    @Override
+    public void deposit(float quantity) {
+        if(overdraft > 0) {
+            float newOverdraft = Math.min(quantity, overdraft);
+            overdraft -= newOverdraft;
+            balance += (quantity - newOverdraft);
+        } else { super.deposit(quantity); }
+    }
+
 }
